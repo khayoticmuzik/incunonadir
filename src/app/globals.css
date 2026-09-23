@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #000000;
+  --color-foreground: #e8e6e1;
+
+  --color-obsidian: #000000;
+  --color-ink: #0a0a0b;
+  --color-ash: #141416;
+  --color-smoke: #1c1c1f;
+  --color-fog: #2a2a2e;
+  --color-mist: #6b6b70;
+  --color-parchment: #e8e6e1;
+  --color-bone: #f5f3ee;
+  --color-ember: #c9a961;
+  --color-ember-dim: #8a7442;
+
+  --font-display: var(--font-cormorant);
+  --font-reading: var(--font-literata);
+  --font-ui: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  background: var(--color-obsidian);
+  color: var(--color-parchment);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-ui), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Kill default focus rings in favor of subtle ember outline */
+:focus-visible {
+  outline: 1px solid var(--color-ember);
+  outline-offset: 2px;
+}
+
+/* Hide scrollbars on carousel overflow but keep functionality */
+@utility scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
